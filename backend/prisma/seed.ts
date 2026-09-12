@@ -20,7 +20,7 @@ type TaskSeed = {
   due: Date
 }
 
-async function main() {
+export async function seed() {
   // wipe everything so the seed can be re-run
   await prisma.notification.deleteMany()
   await prisma.activityLog.deleteMany()
@@ -180,9 +180,11 @@ async function main() {
   console.log(`seeded ${Object.keys(users).length} users, ${Object.keys(clients).length} clients, ${projects.length} projects, ${taskCount} tasks (${overdue} overdue), ${activityCount} activity rows`)
 }
 
-main()
-  .catch((e) => {
-    console.error(e)
-    process.exit(1)
-  })
-  .finally(() => prisma.$disconnect())
+if (require.main === module) {
+  seed()
+    .catch((e) => {
+      console.error(e)
+      process.exit(1)
+    })
+    .finally(() => prisma.$disconnect())
+}
