@@ -2,7 +2,7 @@
 
 Internal dashboard for a small agency: clients, projects, tasks, and a live activity feed so everyone sees status changes as they happen. Three roles (Admin, Project Manager, Developer) with access enforced in the API, not just hidden in the UI.
 
-**Live:** LIVE_URL_PLACEHOLDER
+**Live:** https://agency-dashboard-chi-five.vercel.app
 **Demo login:** any account below, password `password123`
 
 | Role | Email | What they see |
