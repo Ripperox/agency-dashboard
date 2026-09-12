@@ -20,8 +20,8 @@ services:
     environment:
       PORT: 4000
       DATABASE_URL: postgresql://postgres:postgres@db:5432/agency_dashboard
-      JWT_ACCESS_SECRET: dev-access-secret-change-me
-      JWT_REFRESH_SECRET: dev-refresh-secret-change-me
+      JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET:-dev-only-access-secret}
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-dev-only-refresh-secret}
       ACCESS_TOKEN_TTL: 15m
       REFRESH_TOKEN_DAYS: 7
       CLIENT_ORIGIN: http://localhost:8080
